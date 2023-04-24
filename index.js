@@ -21,7 +21,7 @@ router.get("/", (req, res) => {
   res.send("Esta es la Home de nuestra API");
 });
 
-//  Ruta para recuperar todos los usuarios
+//  Ruta para recuperar todos los libros
 router.get("/book", (req, res) => {
   //  Con el ( modelo.find() ) leemos el modelo
   Book.find()
@@ -29,31 +29,30 @@ router.get("/book", (req, res) => {
     .catch((error) => res.status(500).json(error)); //  Devolvemos un codigo de error si falla
 });
 
-//  Ruta para recuperar un usuario en concreto a través de su id ( modelo.findById())
+//  Ruta para recuperar un libri en concreto a través de su id ( modelo.findById())
 router.get("/book/:id", (req, res) => {
   const id = req.params.id;
 
   Book.findById(id)
     .then((book) => {
       if (book) {
-        res.json(book); //  Si está el usuario lo mandamos de respuesta en modo json
+        res.json(book); //  Si está el libro lo mandamos de respuesta en modo json
       } else {
-        res.status(404).json({}); //    Si no existe el usuario se manda un json vacio y un status 404
+        res.status(404).json({}); //    Si no existe el libro se manda un json vacio y un status 404
       }
     })
     .catch((error) => res.status(500).json(error)); //  Devolvemos un codigo de error si falla la lectura
 });
 
-//  Ruta para buscar un usuario por el name ( modelo.findById({firstName: name}))
+//  Ruta para buscar un libro por el title ( modelo.findById({title: title}))
 router.get("/book/title/:title", async (req, res) => {
   const title = req.params.title;
   try {
-    // const user = await User.find({ firstName: name }); //Busqueda exacta
     const book = await Book.find({ title: new RegExp("^" + title.toLowerCase(), "i") }); //  Busqueda que coincida el texto sin importar mayusc o minusc
     if (book?.length) {
-      res.json(book); //  Si está el usuario lo mandamos de respuesta en modo json
+      res.json(book); //  Si está el libro lo mandamos de respuesta en modo json
     } else {
-      res.status(404).json([]); //   Si no existe el usuario se manda un json vacio y un status 404
+      res.status(404).json([]); //   Si no existe el libro se manda un json vacio y un status 404
     }
   } catch (error) {
     res.status(500).json(error); //  Devolvemos un codigo de error si falla la lectura
@@ -63,8 +62,8 @@ router.get("/book/title/:title", async (req, res) => {
 //  Ruta para añadir elementos
 router.post("/book", async (req, res) => {
   try {
-    const book = new Book({ title: req.body.title, author: req.body.author, pages: req.body.pages }); //     Un nuevo usuario es un modelo de la BBDD que tiene un Scheme que valida esos datos
-    const createdBook = await book.save(); // Guardamos el usuario creado en caso de que vaya bien
+    const book = new Book({ title: req.body.title, author: req.body.author, pages: req.body.pages }); //     Un nuevo libro es un modelo de la BBDD que tiene un Scheme que valida esos datos
+    const createdBook = await book.save(); // Guardamos el libro creado en caso de que vaya bien
     return res.status(201).json(createdBook); // 201 significa que algo se ha creado
   } catch (error) {
     res.status(500).json(error); //  Devolvemos un codigo de error si falla la escritura

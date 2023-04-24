@@ -39,7 +39,7 @@ connect().then(() => {
   Book.collection.drop().then(() => {
     console.log("Usuarios eliminados");
 
-    //  Añadimos los usuarios
+    //  Añadimos los libros
     const documents = bookList.map((user) => new Book(user));
     Book.insertMany(documents) // Insertamos nuestros documentos
       .then(() => console.log("Datos guardados correctamente!")) // Si ha ido bien imprimo por consola
