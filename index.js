@@ -1,7 +1,7 @@
 // Importamos express
 const express = require("express");
 
-// Importamos las userRoutes
+// Importamos el bookRouter
 const { bookRouter } = require("./routes/book.routes"); //  LO IMPORTAMOS COMO UN OBJETO
 // Conexión a la base de datos
 const { connect } = require("./db.js"); // Importamos el archivo de conexión a la BBDD

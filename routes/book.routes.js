@@ -4,7 +4,7 @@ const express = require("express");
 // Importamos el modelo que nos sirve tanto para importar datos como para leerlos:
 const { Book } = require("../models/Book.js");
 
-// Router propio de usuario:
+// Router propio de book:
 const router = express.Router();
 
 //  ------------------------------------------------------------------------------------------
@@ -56,7 +56,7 @@ router.get("/:id", async (req, res) => {
   // Si funciona la lectura...
   try {
     const id = req.params.id; //  Recogemos el id de los parametros de la ruta.
-    const book = await Book.findById(id); //  Buscamos un documentos con un id determinado dentro de nuestro modelo con modelo.findById(id a buscar).
+    const book = await Book.findById(id); //  Buscamos un book con un id determinado dentro de nuestro modelo con modelo.findById(id a buscar).
     if (book) {
       res.json(book); //  Si existe el book lo mandamos como respuesta en modo json.
     } else {
@@ -114,12 +114,12 @@ router.post("/", async (req, res) => {
 });
 
 /* Petición tipo de POST para añadir un nuevo book (añadimos al body el nuevo book con sus propiedades que tiene que cumplir con el Scheme de nuestro modelo) identificado por su id:
- const newUser = {title: "Prueba title", author: "Prueba author", pages: "Prueba pages"}
- fetch("http://localhost:3000/book/",{"body": JSON.stringify(newUser),"method":"POST","headers":{"Accept":"application/json","Content-Type":"application/json"}}).then((data)=> console.log(data)) */
+ const newBook = {title: "Prueba title", author: "Prueba author", pages: 255}
+ fetch("http://localhost:3000/book/",{"body": JSON.stringify(newBook),"method":"POST","headers":{"Accept":"application/json","Content-Type":"application/json"}}).then((data)=> console.log(data)) */
 
 //  ------------------------------------------------------------------------------------------
 
-//  Endpoin para eliminar book identificado por id (CRUD: DELETE):
+//  Endpoint para eliminar book identificado por id (CRUD: DELETE):
 
 router.delete("/:id", async (req, res) => {
   // Si funciona el borrado...
@@ -138,14 +138,14 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-/* Petición tipo DELETE para eliminar un book (no añadimos body a la busqueda y recogemos el id de los parametros de la ruta) identificado por su id:
+/* Petición tipo DELETE para eliminar un book  identificado por su id (no añadimos body a la busqueda y recogemos el id de los parametros de la ruta):
 
 fetch("http://localhost:3000/book/id del book a borrar",{"method":"DELETE","headers":{"Accept":"application/json","Content-Type":"application/json"}}).then((data)=> console.log(data))
 */
 
 //  ------------------------------------------------------------------------------------------
 
-//  Endpoin para actualizar un elemento identificado por id (CRUD: UPDATE):
+//  Endpoint para actualizar un elemento identificado por id (CRUD: UPDATE):
 
 router.put("/:id", async (req, res) => {
   // Si funciona la actualización...
@@ -153,7 +153,7 @@ router.put("/:id", async (req, res) => {
     const id = req.params.id; //  Recogemos el id de los parametros de la ruta.
     const bookUpdated = await Book.findByIdAndUpdate(id, req.body, { new: true }); // Esperamos que devuelva la info del book actualizado al que tambien hemos pasado un objeto con los campos q tiene que acualizar en la req del body de la petición. {new: true} Le dice que nos mande el book actualizado no el antiguo. Lo busca y elimina con el metodo findByIdAndDelete(id del book a eliminar).
     if (bookUpdated) {
-      res.json(bookUpdated); //  Devolvemos el usuario actualizado en caso de que exista con ese id.
+      res.json(bookUpdated); //  Devolvemos el book actualizado en caso de que exista con ese id.
     } else {
       res.status(404).json({}); //  Devolvemos un código 404 y un objeto vacio en caso de que no exista con ese id.
     }
