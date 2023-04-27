@@ -4,34 +4,25 @@ const mongoose = require("mongoose");
 const { connect } = require("../db.js");
 // Importamos el modelo
 const { Book } = require("../models/Book.js");
-//
-const bookList = [
-  {
-    title: "Harry Potter",
-    author: "J.K. Rowling",
-    pages: 543,
-  },
-  {
-    title: "1984",
-    author: "George Orwell",
-    pages: 328,
-  },
-  {
-    title: "To Kill a Mockingbird",
-    author: "Harper Lee",
-    pages: 281,
-  },
-  {
-    title: "The Great Gatsby",
-    author: "F. Scott Fitzgerald",
-    pages: 180,
-  },
-  {
-    title: "Pride and Prejudice",
-    author: "Jane Austen",
-    pages: 279,
-  },
-];
+
+// Cremos 50 libros aleatorios haciendo uso de la librería faker:
+
+const bookList = [];
+const { faker } = require("@faker-js/faker");
+
+// Creamos 50 cars aleatoriamente y los vamos añadiendo al array de cars:
+for (let i = 0; i < 50; i++) {
+  const title = faker.random.words(3);
+  const author = `${faker.name.firstName()} ${faker.name.lastName()}`;
+  const pages = faker.datatype.number({ min: 50, max: 1999 });
+
+  // Añadimos el usuario a nuestra array de cars:
+  bookList.push({
+    title,
+    author,
+    pages,
+  });
+}
 //  Cuando nos conectemos ...
 connect().then(() => {
   console.log("Tenemos conexión");
