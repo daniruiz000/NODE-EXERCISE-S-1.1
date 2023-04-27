@@ -473,7 +473,7 @@
 					"response": []
 				},
 				{
-					"name": "Delete Car by Id",
+					"name": "Delete  Book by Id",
 					"request": {
 						"method": "DELETE",
 						"header": [],

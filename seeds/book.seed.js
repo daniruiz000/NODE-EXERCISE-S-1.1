@@ -12,9 +12,9 @@ const { faker } = require("@faker-js/faker");
 
 // Creamos 50 books aleatoriamente y los vamos añadiendo al array de books:
 for (let i = 0; i < 50; i++) {
-  const title = faker.random.words(3);
-  const author = `${faker.name.firstName()} ${faker.name.lastName()}`;
-  const pages = faker.datatype.number({ min: 50, max: 1999 });
+  const title = faker.music.songName();
+  const author = faker.name.fullName();
+  const pages = faker.datatype.number({ min: 50, max: 1000 });
 
   // Añadimos el book a nuestra array de books:
   bookList.push({
