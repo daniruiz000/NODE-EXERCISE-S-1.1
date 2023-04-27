@@ -18,7 +18,7 @@ const router = express.Router();
 router.get("/", (req, res) => {
   res.send("Esta es la Home de nuestra API");
 });
-// Para que todas las peticiones que no se correspondan con nuestras rutas den un codigo 404 y manden un mensaje de error.
+//  Para que todas las peticiones que no se correspondan con nuestras rutas den un codigo 404 y manden un mensaje de error.
 router.get("*", (req, res) => {
   res.status(404).send("Lo sentimos :( No hemos encontrado la página requerida.");
 });

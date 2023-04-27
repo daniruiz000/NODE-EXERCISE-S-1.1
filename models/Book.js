@@ -8,7 +8,6 @@ const bookSchema = new Schema(
     title: { type: String, required: true },
     author: { type: String, required: true },
     pages: { type: Number, required: false },
-    //
   },
   { timestamps: true } // Cada vez que se modifique un documento refleja la hora y fecha de modificación
 );
