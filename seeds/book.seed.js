@@ -5,12 +5,12 @@ const { connect } = require("../db.js");
 // Importamos el modelo
 const { Book } = require("../models/Book.js");
 
-// Cremos 50 books aleatorios haciendo uso de la librería faker:
-
-const bookList = [];
+// Importamos la librería faker:
 const { faker } = require("@faker-js/faker");
 
 // Creamos 50 books aleatoriamente y los vamos añadiendo al array de books:
+const bookList = [];
+
 for (let i = 0; i < 50; i++) {
   const title = faker.music.songName();
   const author = faker.name.fullName();
