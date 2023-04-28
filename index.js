@@ -9,12 +9,12 @@ connect(); //  Conectamos con la BBDD
 
 //  Configuración del server
 const PORT = 3000; //  Definimos el puerto
-const server = express();
+const server = express(); // Definimos el server.
 server.use(express.json()); // Sepa interpretar los JSON
 server.use(express.urlencoded({ extended: false })); //  Sepa interpretar bien los parametros de las rutas
 
 //  Rutas
-const router = express.Router();
+const router = express.Router(); // Definimos el router que será el encargado de manejar las peticiones a nuestras rutas.
 router.get("/", (req, res) => {
   res.send("Esta es la Home de nuestra API");
 });

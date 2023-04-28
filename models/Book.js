@@ -11,7 +11,7 @@ const bookSchema = new Schema(
   },
   { timestamps: true } // Cada vez que se modifique un documento refleja la hora y fecha de modificación
 );
-// Creamos un modelo parea que siempre que creamos un book valide contra el Schema que le hemos creado para ver si es valido.
+// Creamos un modelo para que siempre que creamos un book valide contra el Schema que hemos creado para ver si es valido.
 const Book = mongoose.model("Book", bookSchema);
 //  Exportamos para poder usarlo fuera
 module.exports = { Book };
