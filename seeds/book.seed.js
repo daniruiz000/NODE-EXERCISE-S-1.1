@@ -12,7 +12,7 @@ const { faker } = require("@faker-js/faker");
 const bookList = [];
 
 for (let i = 0; i < 50; i++) {
-  const title = faker.music.songName();
+  const title = faker.random.words(3);
   const author = faker.name.fullName();
   const pages = faker.datatype.number({ min: 50, max: 1000 });
 
