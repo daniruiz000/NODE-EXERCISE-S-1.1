@@ -103,7 +103,7 @@ router.get("/title/:title", async (req, res) => {
 router.post("/", async (req, res) => {
   // Si funciona la escritura...
   try {
-    const book = new Book({ title: req.body.title, author: req.body.author, pages: req.body.pages }); //     Un nuevo book es un nuevo modelo de la BBDD que tiene un Scheme que valida la estructura de esos datos que recoge del body de la petición.
+    const book = new Book(req.body); //     Un nuevo book es un nuevo modelo de la BBDD que tiene un Scheme que valida la estructura de esos datos que recoge del body de la petición.
     const createdBook = await book.save(); // Esperamos a que guarde el nuevo book creado en caso de que vaya bien. Con el metodo .save().
     return res.status(201).json(createdBook); // Devolvemos un código 201 que significa que algo se ha creado y el book creado en modo json.
 

@@ -12,16 +12,18 @@ const { faker } = require("@faker-js/faker");
 const bookList = [];
 
 for (let i = 0; i < 50; i++) {
-  const title = faker.random.words(3);
-  const author = faker.name.fullName();
-  const pages = faker.datatype.number({ min: 50, max: 1000 });
+  const newBook = {
+    title: faker.random.words(3),
+    author: faker.name.fullName(),
+    pages: faker.datatype.number({ min: 50, max: 1000 }),
+    publisher: {
+      name: faker.company.name(),
+      country: faker.address.country(),
+    },
+  };
 
   // Añadimos el book a nuestra array de books:
-  bookList.push({
-    title,
-    author,
-    pages,
-  });
+  bookList.push(newBook);
 }
 //  Cuando nos conectemos ...
 connect().then(() => {
