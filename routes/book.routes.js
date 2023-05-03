@@ -4,12 +4,15 @@ const express = require("express");
 // Importamos el modelo que nos sirve tanto para importar datos como para leerlos:
 const { Book } = require("../models/Book.js");
 
+// Importamos la función que nos sirve para resetear los book:
+const { resetBooks } = require("../utils/restetBooks.js");
+
 // Router propio de book:
 const router = express.Router();
 
 //  ------------------------------------------------------------------------------------------
 
-/*  Ruta para recuperar todos los books de manera paginada en función de un limite de elementos a mostrar
+/*  Endpoint para recuperar todos los books de manera paginada en función de un limite de elementos a mostrar
 por página para no saturar al navegador (CRUD: READ):
 */
 
@@ -50,7 +53,7 @@ router.get("/", async (req, res) => {
 
 //  ------------------------------------------------------------------------------------------
 
-//  Ruta para recuperar un book en concreto a través de su id ( modelo.findById()) (CRUD: READ):
+//  Endpoint para recuperar un book en concreto a través de su id ( modelo.findById()) (CRUD: READ):
 
 router.get("/:id", async (req, res) => {
   // Si funciona la lectura...
@@ -74,7 +77,7 @@ router.get("/:id", async (req, res) => {
 
 //  ------------------------------------------------------------------------------------------
 
-//  Ruta para buscar un book por el title ( modelo.findById({firstName: name})) (CRUD: Operación Custom. No es CRUD):
+//  Endpoint para buscar un book por el title ( modelo.findById({firstName: name})) (CRUD: Operación Custom. No es CRUD):
 
 router.get("/title/:title", async (req, res) => {
   const title = req.params.title;
@@ -98,7 +101,7 @@ router.get("/title/:title", async (req, res) => {
 
 //  ------------------------------------------------------------------------------------------
 
-//  Ruta para añadir elementos (CRUD: CREATE):
+//  Endpoint para añadir elementos (CRUD: CREATE):
 
 router.post("/", async (req, res) => {
   // Si funciona la escritura...
@@ -116,6 +119,23 @@ router.post("/", async (req, res) => {
 /* Petición tipo de POST para añadir un nuevo book (añadimos al body el nuevo book con sus propiedades que tiene que cumplir con el Scheme de nuestro modelo) identificado por su id:
  const newBook = {title: "Prueba title", author: "Prueba author", pages: 255}
  fetch("http://localhost:3000/book/",{"body": JSON.stringify(newBook),"method":"POST","headers":{"Accept":"application/json","Content-Type":"application/json"}}).then((data)=> console.log(data)) */
+
+//  ------------------------------------------------------------------------------------------
+
+//  Endpoint para resetear los datos ejecutando cryptos:
+
+router.delete("/reset", async (req, res) => {
+  // Si funciona el reseteo...
+  try {
+    await resetBooks();
+    res.send("Datos Book reseteados");
+
+    // Si falla el reseteo...
+  } catch (error) {
+    console.error(error);
+    res.status(500).json(error); //  Devolvemos un código 500 de error si falla el reseteo de datos y el error.
+  }
+});
 
 //  ------------------------------------------------------------------------------------------
 
@@ -171,5 +191,5 @@ fetch("http://localhost:3000/book/id del book a actualizar",{"body": JSON.string
 */
 
 //  ------------------------------------------------------------------------------------------
-// Exportamos
-module.exports = { bookRouter: router };
+
+module.exports = { bookRouter: router }; // Exportamos el router.
