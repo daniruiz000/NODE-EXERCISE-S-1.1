@@ -15,7 +15,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/user?page=1&limit=10",
+							"raw": "{{base_url}}/user?page=1",
 							"host": [
 								"{{base_url}}"
 							],
@@ -29,7 +29,8 @@
 								},
 								{
 									"key": "limit",
-									"value": "10"
+									"value": "10",
+									"disabled": true
 								}
 							]
 						}
@@ -42,13 +43,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/user/644a4ce8f92f43290ca1b7a3",
+							"raw": "{{base_url}}/user/645105cc382c5a2713b1ed99",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"user",
-								"644a4ce8f92f43290ca1b7a3"
+								"645105cc382c5a2713b1ed99"
 							]
 						}
 					},
@@ -60,14 +61,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/user/name/Tara",
+							"raw": "{{base_url}}/user/name/Daniel",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"user",
 								"name",
-								"Tara"
+								"Daniel"
 							]
 						}
 					},
@@ -91,7 +92,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"firstName\": \"Daniel\",\r\n    \"lastName\": \"Ruiz\",\r\n    \"sex\": \"male\",\r\n    \"phone\":\"+34 91 471 42 44\"\r\n}",
+							"raw": "{\r\n    \"firstName\": \"Prueba Nombre\",\r\n    \"lastName\": \"Prueba Apellido\",\r\n    \"sex\": \"male\",\r\n    \"phone\":\"+34 91 471 42 44\",\r\n    \"address\": {\r\n      \"street\": \"Prueba street\"\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -128,7 +129,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\"firstName\": \"Rudy\",\r\n\"lastName\": \"Barrows\",\r\n\"phone\":\"+34 70 095 55 57\",\r\n\"sex\":\"male\"\r\n}",
+							"raw": "{\r\n\"firstName\": \"Prueba Update\",\r\n\"phone\":\"+34 70 095 55 57\",\r\n\"sex\":\"male\",\r\n\"address\": {\r\n      \"street\": \"Prueba street\",\r\n      \"number\": 565,\r\n      \"city\": \"Prueba city\"\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -136,13 +137,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/user/644a4ce8f92f43290ca1b7a2",
+							"raw": "{{base_url}}/user/645101a50b3703413cb72049",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"user",
-								"644a4ce8f92f43290ca1b7a2"
+								"645101a50b3703413cb72049"
 							]
 						}
 					},
@@ -161,6 +162,26 @@
 							"path": [
 								"user",
 								"644a4ce8f92f43290ca1b7a2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Users",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/user/reset",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"reset"
 							]
 						}
 					},
@@ -253,7 +274,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"brand\": \"Peugeot\",\r\n    \"model\": \"206CC\",\r\n    \"plate\": \"2345BLW\",\r\n    \"power\":145\r\n}",
+							"raw": "{\r\n    \"brand\": \"Fiat\",\r\n    \"model\": \"Landero\",\r\n    \"plate\": \"1645BLW\",\r\n    \"power\":148\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -327,6 +348,26 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Reset Cars",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/car/reset",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"car",
+								"reset"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -366,13 +407,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/book/644a633e71f020899c5471b7",
+							"raw": "{{base_url}}/book/645181d2e2e4ba3b4cd5585f",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"book",
-								"644a633e71f020899c5471b7"
+								"645181d2e2e4ba3b4cd5585f"
 							]
 						}
 					},
@@ -384,14 +425,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/book/title/Communications Grocery Southeast",
+							"raw": "{{base_url}}/book/title/Dirham recall Northeast",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"book",
 								"title",
-								"Communications Grocery Southeast"
+								"Dirham recall Northeast"
 							]
 						}
 					},
@@ -415,7 +456,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Paul Auster\",\r\n    \"author\": \"El libro de los sueños\",\r\n    \"pages\": 345\r\n}",
+							"raw": "{\r\n    \"title\": \"Manual de Lios\",\r\n    \"author\": \"Manolito\",\r\n    \"pages\": 35\r\n\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -452,7 +493,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\"title\": \"El Cartel\",\r\n\"author\": \"Don Wilson\",\r\n\"pages\":226\r\n}",
+							"raw": "{\r\n\"publisher\": {\r\n    \"name\": \"RGB\",\r\n    \"country\": \"Spain\"\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -460,13 +501,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/book/644a691242608e0714b34b33",
+							"raw": "{{base_url}}/book/6451ef21f60033d9ef59717b",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"book",
-								"644a691242608e0714b34b33"
+								"6451ef21f60033d9ef59717b"
 							]
 						}
 					},
@@ -478,13 +519,33 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/book/644a691242608e0714b34b33",
+							"raw": "{{base_url}}/book/6451ef21f60033d9ef59717b",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"book",
-								"644a691242608e0714b34b33"
+								"6451ef21f60033d9ef59717b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Book Seed",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/book/reset",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"book",
+								"reset"
 							]
 						}
 					},
@@ -534,6 +595,18 @@
 			"key": "base_url",
 			"value": "http://localhost:3000",
 			"type": "string"
+		},
+		{
+			"key": "base_url",
+			"value": "https://node-s2-mongo.vercel.app",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "base_url",
+			"value": "https://node-exercise-s-2-1-and-2-2.vercel.app",
+			"type": "string",
+			"disabled": true
 		}
 	]
 }
