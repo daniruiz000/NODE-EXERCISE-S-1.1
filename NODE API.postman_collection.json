@@ -394,7 +394,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/author?page=1",
+							"raw": "{{base_url}}/author?page=1&limit=10",
 							"host": [
 								"{{base_url}}"
 							],
@@ -408,8 +408,7 @@
 								},
 								{
 									"key": "limit",
-									"value": "10",
-									"disabled": true
+									"value": "10"
 								}
 							]
 						}
@@ -422,19 +421,18 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/author/64539eb42f0f7e76a5f8eb5d",
+							"raw": "{{base_url}}/author/6453e6f6e8653a9533623123?includeBooks=true",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"author",
-								"64539eb42f0f7e76a5f8eb5d"
+								"6453e6f6e8653a9533623123"
 							],
 							"query": [
 								{
-									"key": "",
-									"value": "",
-									"disabled": true
+									"key": "includeBooks",
+									"value": "true"
 								}
 							]
 						}
@@ -447,14 +445,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/author/name/Fiat",
+							"raw": "{{base_url}}/author/name/Gabriel García Márquez",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"author",
 								"name",
-								"Fiat"
+								"Gabriel García Márquez"
 							]
 						}
 					},
@@ -478,7 +476,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Prueba Nombre\",\r\n    \"creationYear\": 5555,\r\n    \"country\": \"Prueba Country\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Prueba Nombre\",\r\n    \"country\": \"Prueba Country\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -486,12 +484,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/author",
+							"raw": "{{base_url}}/author/",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"author"
+								"author",
+								""
 							]
 						}
 					},
@@ -515,7 +514,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Prueba Update Nombre\",\r\n    \"creationYear\": 1111,\r\n    \"country\": \"Prueba Update Country\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Prueba Update Nombre\",\r\n    \"country\": \"Prueba Update Country\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -523,13 +522,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/author/64539fa1f020d08cd34691e7",
+							"raw": "{{base_url}}/author/6453e0f5de48ffb31eaef8fb",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"author",
-								"64539fa1f020d08cd34691e7"
+								"6453e0f5de48ffb31eaef8fb"
 							]
 						}
 					},
@@ -541,13 +540,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/author/64539fa1f020d08cd34691e7",
+							"raw": "{{base_url}}/author/6453e0f5de48ffb31eaef8fb",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"author",
-								"64539fa1f020d08cd34691e7"
+								"6453e0f5de48ffb31eaef8fb"
 							]
 						}
 					},
@@ -559,14 +558,199 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/author/reset",
-							"protocol": "http",
+							"raw": "{{base_url}}/author/reset",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "3000",
 							"path": [
 								"author",
+								"reset"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Publisher",
+			"item": [
+				{
+					"name": "Get Publisher",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/publisher?page=1&limit=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"publisher"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Publisherby Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/publisher/6454131db927ee462574369c?includeBooks=true",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"publisher",
+								"6454131db927ee462574369c"
+							],
+							"query": [
+								{
+									"key": "includeBooks",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Publisherby Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/publisher/name/RGB",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"publisher",
+								"name",
+								"RGB"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Publisher",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Prueba Nombre\",\r\n    \"country\": \"Prueba Country\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/publisher/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"publisher",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Publisher",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Prueba Update Nombre\",\r\n    \"country\": \"Prueba Update Country\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/publisher/64541006279b7028a25569c2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"publisher",
+								"64541006279b7028a25569c2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Publisherby Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/publisher/64541006279b7028a25569c2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"publisher",
+								"64541006279b7028a25569c2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Publisher",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/publisher/reset",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"publisher",
 								"reset"
 							]
 						}
@@ -768,7 +952,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/book?page=1&limit=10",
+							"raw": "{{base_url}}/book?page=5&limit=10",
 							"host": [
 								"{{base_url}}"
 							],
@@ -778,7 +962,7 @@
 							"query": [
 								{
 									"key": "page",
-									"value": "1"
+									"value": "5"
 								},
 								{
 									"key": "limit",
@@ -795,13 +979,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/book/6453c7f53726403bbba5753c",
+							"raw": "{{base_url}}/book/6454131bb3baf27a65f95b59",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"book",
-								"6453c7f53726403bbba5753c"
+								"6454131bb3baf27a65f95b59"
 							]
 						}
 					},
@@ -844,7 +1028,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Manual de Lios\",\r\n    \"pages\": 35\r\n\r\n}",
+							"raw": "{\r\n    \"title\": \"Manual de Lios\",\r\n    \"pages\": 35,\r\n    \"author\":\"64540f99277341ef8af44049\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -907,13 +1091,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/book/6451ef21f60033d9ef59717b",
+							"raw": "{{base_url}}/book/6453e5b61f0dc5886ba132af",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"book",
-								"6451ef21f60033d9ef59717b"
+								"6453e5b61f0dc5886ba132af"
 							]
 						}
 					},
@@ -925,12 +1109,10 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/book/reset",
-							"protocol": "http",
+							"raw": "{{base_url}}/book/reset",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "3000",
 							"path": [
 								"book",
 								"reset"
