@@ -43,13 +43,19 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/user/645105cc382c5a2713b1ed99",
+							"raw": "{{base_url}}/user/64537a9bb6b05d233e11811f?includeCars=true",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"user",
-								"645105cc382c5a2713b1ed99"
+								"64537a9bb6b05d233e11811f"
+							],
+							"query": [
+								{
+									"key": "includeCars",
+									"value": "true"
+								}
 							]
 						}
 					},
@@ -61,14 +67,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/user/name/Daniel",
+							"raw": "{{base_url}}/user/name/Billie",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"user",
 								"name",
-								"Daniel"
+								"Billie"
 							]
 						}
 					},
@@ -137,13 +143,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/user/645101a50b3703413cb72049",
+							"raw": "{{base_url}}/user/6451f47ca1574533ef418a41",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"user",
-								"645101a50b3703413cb72049"
+								"6451f47ca1574533ef418a41"
 							]
 						}
 					},
@@ -155,13 +161,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/user/644a4ce8f92f43290ca1b7a2",
+							"raw": "{{base_url}}/user/64524dc22bce92d04d5fb1f8",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"user",
-								"644a4ce8f92f43290ca1b7a2"
+								"64524dc22bce92d04d5fb1f8"
 							]
 						}
 					},
@@ -190,6 +196,386 @@
 			]
 		},
 		{
+			"name": "Brand",
+			"item": [
+				{
+					"name": "Get Brand",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/brand?page=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"brand"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Brand by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/brand/64539eb42f0f7e76a5f8eb5d",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"brand",
+								"64539eb42f0f7e76a5f8eb5d"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Brand by Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/brand/name/Fiat",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"brand",
+								"name",
+								"Fiat"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Brand",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Prueba Nombre\",\r\n    \"creationYear\": 5555,\r\n    \"country\": \"Prueba Country\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/brand",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"brand"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Brand",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Prueba Update Nombre\",\r\n    \"creationYear\": 1111,\r\n    \"country\": \"Prueba Update Country\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/brand/64539fa1f020d08cd34691e7",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"brand",
+								"64539fa1f020d08cd34691e7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Brand by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/brand/64539fa1f020d08cd34691e7",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"brand",
+								"64539fa1f020d08cd34691e7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Brands",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/brand/reset",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"brand",
+								"reset"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Author",
+			"item": [
+				{
+					"name": "Get Author",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/author?page=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"author"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Author by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/author/64539eb42f0f7e76a5f8eb5d",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"author",
+								"64539eb42f0f7e76a5f8eb5d"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Author by Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/author/name/Fiat",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"author",
+								"name",
+								"Fiat"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Author",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Prueba Nombre\",\r\n    \"creationYear\": 5555,\r\n    \"country\": \"Prueba Country\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/author",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"author"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Author",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Prueba Update Nombre\",\r\n    \"creationYear\": 1111,\r\n    \"country\": \"Prueba Update Country\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/author/64539fa1f020d08cd34691e7",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"author",
+								"64539fa1f020d08cd34691e7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Author by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/author/64539fa1f020d08cd34691e7",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"author",
+								"64539fa1f020d08cd34691e7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Author",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/author/reset",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"author",
+								"reset"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Car",
 			"item": [
 				{
@@ -198,7 +584,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/car?page=1&limit=10",
+							"raw": "{{base_url}}/car",
 							"host": [
 								"{{base_url}}"
 							],
@@ -208,11 +594,13 @@
 							"query": [
 								{
 									"key": "page",
-									"value": "1"
+									"value": "1",
+									"disabled": true
 								},
 								{
 									"key": "limit",
-									"value": "10"
+									"value": "10",
+									"disabled": true
 								}
 							]
 						}
@@ -225,13 +613,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/car/644a57b72474675785822688",
+							"raw": "{{base_url}}/car/6453a1681ea063238a1b0350",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"car",
-								"644a57b72474675785822688"
+								"6453a1681ea063238a1b0350"
 							]
 						}
 					},
@@ -243,14 +631,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/car/brand/Ferrari",
+							"raw": "{{base_url}}/car/brand/6453b0e9eb31c39b6c6ac324",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"car",
 								"brand",
-								"Ferrari"
+								"6453b0e9eb31c39b6c6ac324"
 							]
 						}
 					},
@@ -274,7 +662,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"brand\": \"Fiat\",\r\n    \"model\": \"Landero\",\r\n    \"plate\": \"1645BLW\",\r\n    \"power\":148\r\n}",
+							"raw": "{\r\n    \"brand\": \"Prueba Brand\",\r\n    \"model\": \"Prueba model\",\r\n    \"plate\": \"Prueba plate\",\r\n    \"power\":555\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -319,13 +707,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/car/644a57b72474675785822688",
+							"raw": "{{base_url}}/car/6451f459a1574533ef418a0d",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"car",
-								"644a57b72474675785822688"
+								"6451f459a1574533ef418a0d"
 							]
 						}
 					},
@@ -337,13 +725,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/car/644a5d825b05b3120b4ab8fc",
+							"raw": "{{base_url}}/car/6453a1681ea063238a1b0350",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"car",
-								"644a5d825b05b3120b4ab8fc"
+								"6453a1681ea063238a1b0350"
 							]
 						}
 					},
@@ -407,13 +795,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/book/645181d2e2e4ba3b4cd5585f",
+							"raw": "{{base_url}}/book/6453c7f53726403bbba5753c",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"book",
-								"645181d2e2e4ba3b4cd5585f"
+								"6453c7f53726403bbba5753c"
 							]
 						}
 					},
@@ -425,14 +813,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/book/title/Dirham recall Northeast",
+							"raw": "{{base_url}}/book/title/yowza female mint",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"book",
 								"title",
-								"Dirham recall Northeast"
+								"yowza female mint"
 							]
 						}
 					},
@@ -456,7 +844,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Manual de Lios\",\r\n    \"author\": \"Manolito\",\r\n    \"pages\": 35\r\n\r\n}",
+							"raw": "{\r\n    \"title\": \"Manual de Lios\",\r\n    \"pages\": 35\r\n\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -501,13 +889,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/book/6451ef21f60033d9ef59717b",
+							"raw": "{{base_url}}/book/6453c7f53726403bbba5753c",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"book",
-								"6451ef21f60033d9ef59717b"
+								"6453c7f53726403bbba5753c"
 							]
 						}
 					},

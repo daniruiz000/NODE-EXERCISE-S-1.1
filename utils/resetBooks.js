@@ -10,7 +10,6 @@ const bookList = [];
 for (let i = 0; i < 50; i++) {
   const newBook = {
     title: faker.random.words(3),
-    author: faker.name.fullName(),
     pages: faker.datatype.number({ min: 50, max: 1000 }),
     publisher: {
       name: faker.company.name(),
@@ -25,7 +24,7 @@ for (let i = 0; i < 50; i++) {
 //  Función de reseteo de documentos de la colección.
 const resetBooks = async () => {
   try {
-    await Book.collection.drop(); //  Esperamos a que borre los documentos de la collección book de la BBDD.
+    await Book.collection.drop(); //  Esperamos a que borre los documentos de la colección book de la BBDD.
     console.log("Borrados books");
     await Book.insertMany(bookList); //  Esperamos a que inserte los nuevos documentos creados en la colección book de la BBDD.
     console.log("Creados books correctamente");

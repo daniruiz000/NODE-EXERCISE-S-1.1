@@ -5,7 +5,7 @@ const express = require("express");
 const { Book } = require("../models/Book.js");
 
 // Importamos la función que nos sirve para resetear los book:
-const { resetBooks } = require("../utils/restetBooks.js");
+const { resetBooks } = require("../utils/resetBooks.js");
 
 // Router propio de book:
 const router = express.Router();
@@ -24,6 +24,7 @@ router.get("/", async (req, res) => {
     const limit = parseInt(req.query.limit);
 
     const books = await Book.find() // Devolvemos los books si funciona. Con modelo.find().
+      .populate("author")
       .limit(limit) // La función limit se ejecuta sobre el .find() y le dice que coga un número limitado de elementos, coge desde el inicio a no ser que le añadamos...
       .skip((page - 1) * limit); // La función skip() se ejecuta sobre el .find() y se salta un número determinado de elementos y con este cálculo podemos paginar en función del limit.
 
@@ -59,7 +60,7 @@ router.get("/:id", async (req, res) => {
   // Si funciona la lectura...
   try {
     const id = req.params.id; //  Recogemos el id de los parametros de la ruta.
-    const book = await Book.findById(id); //  Buscamos un book con un id determinado dentro de nuestro modelo con modelo.findById(id a buscar).
+    const book = await Book.findById(id).populate("author"); //  Buscamos un book con un id determinado dentro de nuestro modelo con modelo.findById(id a buscar).
     if (book) {
       res.json(book); //  Si existe el book lo mandamos como respuesta en modo json.
     } else {
@@ -83,7 +84,7 @@ router.get("/title/:title", async (req, res) => {
   const title = req.params.title;
   // Si funciona la lectura...
   try {
-    const book = await Book.find({ title: new RegExp("^" + title.toLowerCase(), "i") }); //  Esperamos a que realice una busqueda en la que coincida el texto pasado por query params para la propiedad determinada pasada dentro de un objeto, porqué tenemos que pasar un objeto, sin importar mayusc o minusc.
+    const book = await Book.find({ title: new RegExp("^" + title.toLowerCase(), "i") }).populate("author"); //  Esperamos a que realice una busqueda en la que coincida el texto pasado por query params para la propiedad determinada pasada dentro de un objeto, porqué tenemos que pasar un objeto, sin importar mayusc o minusc.
     if (book?.length) {
       res.json(book); //  Si existe el book lo mandamos en la respuesta como un json.
     } else {

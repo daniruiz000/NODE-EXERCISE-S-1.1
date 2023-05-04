@@ -8,7 +8,7 @@ const Schema = mongoose.Schema;
 const bookSchema = new Schema(
   {
     title: { type: String, required: true },
-    author: { type: String, required: true },
+    author: { type: mongoose.Schema.Types.ObjectId, ref: "Author", required: false }, // Identificará el id como una referencia de la entidad A uthor relacionando las dos colecciones de la BBDD.
     pages: { type: Number, required: false },
     publisher: {
       type: {
