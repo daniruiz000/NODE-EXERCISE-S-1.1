@@ -11,8 +11,9 @@
     "prepare": "husky install",
     "seed:books": "node ./seeds/book.seed.js",
     "seed:authors": "node ./seeds/author.seed.js",
+    "seed:publishers": "node ./seeds/publisher.seed.js",
     "seed:book-relations": "node ./seeds/bookRelations.seed.js",
-    "seed:all": "node ./seeds/book.seed.js && node ./seeds/author.seed.js && node ./seeds/bookRelations.seed.js"
+    "seed:all": "node ./seeds/book.seed.js && node ./seeds/author.seed.js && node ./seeds/publisher.seed.js && node ./seeds/bookRelations.seed.js"
   },
   "keywords": [],
   "author": "dani ruiz",

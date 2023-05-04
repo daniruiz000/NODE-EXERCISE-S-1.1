@@ -1,7 +1,7 @@
 // Importamos los modelos:
 const { Book } = require("../models/Book");
 const { Author } = require("../models/Author");
-
+const { Publisher } = require("../models/Publisher");
 const { generateRandom } = require("../utils/generateRandom");
 
 //  Función de relación entre de documentos de la colección.
@@ -18,12 +18,18 @@ const bookRelations = async () => {
       console.error("No hay autores en la BBDD.");
       return;
     }
-
+    const publisher = await Publisher.find();
+    if (!publisher.length) {
+      console.error("No hay editoriales en la BBDD.");
+      return;
+    }
     for (let i = 0; i < books.length; i++) {
       const book = books[i];
       const randomAuthor = author[generateRandom(0, author.length)];
+      const randomPublisher = publisher[generateRandom(0, publisher.length)];
 
       book.author = randomAuthor;
+      book.publisher = randomPublisher;
 
       await book.save();
     }

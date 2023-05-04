@@ -4,6 +4,7 @@ const express = require("express");
 // Importamos el bookRouter.
 const { bookRouter } = require("./routes/book.routes"); //  LO IMPORTAMOS COMO UN OBJETO.
 const { authorRouter } = require("./routes/author.routes"); //  LO IMPORTAMOS COMO UN OBJETO.
+const { publisherRouter } = require("./routes/publisher.routes"); //  LO IMPORTAMOS COMO UN OBJETO.
 
 //  Función asíncrona que maneja nuestra API.
 const main = async () => {
@@ -30,6 +31,7 @@ const main = async () => {
   });
 
   //  Usamos las rutas (el orden es importante más restrictivos a menos):
+  server.use("/publisher", publisherRouter); //  Le decimos al server que utilice el publisherRouter importado para gestionar las rutas que tengan "/publisher".
   server.use("/author", authorRouter); //  Le decimos al server que utilice el authorRouter importado para gestionar las rutas que tengan "/author".
   server.use("/book", bookRouter); //  Le decimos al server que utilice el bookRouter importado para gestionar las rutas que tengan "/book".
   server.use("/", router); //  Decimos al server que utilice el router en la raíz.
