@@ -6,9 +6,6 @@ const { Book } = require("../models/Book.js");
 
 // Importamos la función que nos sirve para resetear los book:
 const { resetBooks } = require("../utils/resetBooks.js");
-const { bookRelations } = require("../utils/bookRelations.js");
-const { connect } = require("../db.js");
-const { default: mongoose } = require("mongoose");
 
 // Router propio de book:
 const router = express.Router();
