@@ -3,7 +3,7 @@ const express = require("express");
 
 // Importamos el modelo que nos sirve tanto para importar datos como para leerlos:
 const { Author } = require("../models/Author.js");
-
+const { Book } = require("../models/Book.js");
 // Importamos la función que nos sirve para resetear los author:
 const { resetAuthors } = require("../utils/resetAuthors.js");
 
@@ -60,7 +60,14 @@ router.get("/:id", async (req, res) => {
     const id = req.params.id; //  Recogemos el id de los parametros de la ruta.
     const author = await Author.findById(id); //  Buscamos un documentos con un id determinado dentro de nuestro modelo con modelo.findById(id a buscar).
     if (author) {
-      res.json(author); //  Si existe el author lo mandamos como respuesta en modo json.
+      const temporalAuthor = author.toObject();
+      const includeBooks = req.query.includeBooks === "true";
+
+      if (includeBooks) {
+        const books = await Book.find({ author: id }); // Busco en la entidad Car los coches que correspondena ese id de User.
+        temporalAuthor.books = books; // Añadimos la propiedad cars al usuario temporal con los coches que hemos recogido de la entidad Car.
+      }
+      res.json(temporalAuthor); //  Si existe el author lo mandamos como respuesta en modo json.
     } else {
       res.status(404).json({}); //    Si no existe el author se manda un json vacio y un código 400.
     }
@@ -123,7 +130,7 @@ router.post("/", async (req, res) => {
  fetch("http://localhost:3000/author/",{"body": JSON.stringify(newAuthor),"method":"POST","headers":{"Accept":"application/json","Content-Type":"application/json"}}).then((data)=> console.log(data)) */
 //  ------------------------------------------------------------------------------------------
 
-//  Endpoint para resetear los datos ejecutando cryptos:
+//  Endpoint para resetear los datos de author:
 
 router.delete("/reset", async (req, res) => {
   // Si funciona el reseteo...
