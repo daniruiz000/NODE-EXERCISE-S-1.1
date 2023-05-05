@@ -10,9 +10,11 @@ const { resetAuthors } = require("../utils/resetAuthors.js");
 // Router propio de author:
 const router = express.Router();
 
-//  ------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------
+// ------------------------------- ENDPOINTS DE /author ---------------------------------------
+// --------------------------------------------------------------------------------------------
 
-/*  Ruta para recuperar todos los authors de manera paginada en función de un limite de elementos a mostrar
+/*  Endpoint para recuperar todos los authors de manera paginada en función de un limite de elementos a mostrar
 por página para no saturar al navegador (CRUD: READ):
 */
 
@@ -52,7 +54,7 @@ router.get("/", async (req, res) => {
 
 //  ------------------------------------------------------------------------------------------
 
-//  Ruta para recuperar un author en concreto a través de su id ( modelo.findById()) (CRUD: READ):
+//  Endpoint para recuperar un author en concreto a través de su id ( modelo.findById()) (CRUD: READ):
 
 router.get("/:id", async (req, res) => {
   // Si funciona la lectura...
@@ -83,7 +85,7 @@ router.get("/:id", async (req, res) => {
 
 //  ------------------------------------------------------------------------------------------
 
-//  Ruta para buscar un author por el nombre ( modelo.findById({name: name})) (CRUD: Operación Custom. No es CRUD):
+//  Endpoint para buscar un author por el nombre ( modelo.findById({name: name})) (CRUD: Operación Custom. No es CRUD):
 
 router.get("/name/:name", async (req, res) => {
   const authorName = req.params.name;
@@ -110,7 +112,7 @@ router.get("/name/:name", async (req, res) => {
 
 //  ------------------------------------------------------------------------------------------
 
-//  Ruta para añadir elementos (CRUD: CREATE):
+//  Endpoint para añadir elementos (CRUD: CREATE):
 
 router.post("/", async (req, res) => {
   // Si funciona la escritura...
@@ -147,7 +149,7 @@ router.delete("/reset", async (req, res) => {
 
 //  ------------------------------------------------------------------------------------------
 
-//  Endpoin para eliminar author identificado por id (CRUD: DELETE):
+//  Endpoint para eliminar author identificado por id (CRUD: DELETE):
 
 router.delete("/:id", async (req, res) => {
   // Si funciona el borrado...
@@ -173,7 +175,7 @@ fetch("http://localhost:3000/author/id del author a borrar",{"method":"DELETE","
 
 //  ------------------------------------------------------------------------------------------
 
-//  Endpoin para actualizar un elemento identificado por id (CRUD: UPDATE):
+//  Endpoint para actualizar un elemento identificado por id (CRUD: UPDATE):
 
 router.put("/:id", async (req, res) => {
   // Si funciona la actualización...

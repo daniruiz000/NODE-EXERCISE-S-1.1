@@ -6,14 +6,22 @@ const { Book } = require("../models/Book.js");
 
 // Importamos la función que nos sirve para resetear los book:
 const { resetBooks } = require("../utils/resetBooks.js");
+
+// Importamos la función que nos sirve para resetear los autores:
 const { resetAuthors } = require("../utils/resetAuthors.js");
+
+// Importamos la función que nos sirve para resetear las editoriales:
 const { resetPublishers } = require("../utils/resetPublishers.js");
+
+// Importamos la función que nos sirve para resetear las relaciones entre las coleciones:
 const { bookRelations } = require("../utils/bookRelations.js");
 
-// Router propio de book:
+// Router propio de book suministrado por express.Router:
 const router = express.Router();
 
-//  ------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------
+// --------------------------------- ENDPOINTS DE /book ---------------------------------------
+// --------------------------------------------------------------------------------------------
 
 /*  Endpoint para recuperar todos los books de manera paginada en función de un limite de elementos a mostrar
 por página para no saturar al navegador (CRUD: READ):

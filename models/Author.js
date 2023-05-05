@@ -8,7 +8,7 @@ const Schema = mongoose.Schema;
 const authorSchema = new Schema(
   {
     name: { type: String, required: true },
-    country: { type: String, required: true }, // Identificará el id como una referencia de la entidad User relacionando las dos colecciones de la BBDD.
+    country: { type: String, required: true },
   },
   { timestamps: true } // Cada vez que se modifique un documento refleja la hora y fecha de modificación
 );

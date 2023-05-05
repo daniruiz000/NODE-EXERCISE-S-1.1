@@ -10,9 +10,11 @@ const { resetPublishers } = require("../utils/resetPublishers.js");
 // Router propio de publisher:
 const router = express.Router();
 
-//  ------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------
+// ------------------------------ ENDPOINTS DE /publisher -------------------------------------
+// --------------------------------------------------------------------------------------------
 
-/*  Ruta para recuperar todos los publishers de manera paginada en función de un limite de elementos a mostrar
+/*  Endpoint para recuperar todos los publishers de manera paginada en función de un limite de elementos a mostrar
 por página para no saturar al navegador (CRUD: READ):
 */
 
@@ -52,7 +54,7 @@ router.get("/", async (req, res) => {
 
 //  ------------------------------------------------------------------------------------------
 
-//  Ruta para recuperar un publisher en concreto a través de su id ( modelo.findById()) (CRUD: READ):
+//  Endpoint para recuperar un publisher en concreto a través de su id ( modelo.findById()) (CRUD: READ):
 
 router.get("/:id", async (req, res) => {
   // Si funciona la lectura...
@@ -83,7 +85,7 @@ router.get("/:id", async (req, res) => {
 
 //  ------------------------------------------------------------------------------------------
 
-//  Ruta para buscar un publisher por el nombre ( modelo.findById({name: name})) (CRUD: Operación Custom. No es CRUD):
+//  Endpoint para buscar un publisher por el nombre ( modelo.findById({name: name})) (CRUD: Operación Custom. No es CRUD):
 
 router.get("/name/:name", async (req, res) => {
   const publisherName = req.params.name;
@@ -110,7 +112,7 @@ router.get("/name/:name", async (req, res) => {
 
 //  ------------------------------------------------------------------------------------------
 
-//  Ruta para añadir elementos (CRUD: CREATE):
+//  Endpoint para añadir elementos (CRUD: CREATE):
 
 router.post("/", async (req, res) => {
   // Si funciona la escritura...

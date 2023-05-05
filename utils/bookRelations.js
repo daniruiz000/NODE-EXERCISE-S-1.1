@@ -7,7 +7,7 @@ const { generateRandom } = require("../utils/generateRandom");
 //  Función de relación entre de documentos de la colección.
 const bookRelations = async () => {
   try {
-    //  Recuperamos books y authors:
+    //  Recuperamos books, publishers y authors:
     const books = await Book.find();
     if (!books.length) {
       console.error("No hay libros en la BBDD.");
@@ -23,6 +23,7 @@ const bookRelations = async () => {
       console.error("No hay editoriales en la BBDD.");
       return;
     }
+    // Para cada libro recogido elegimos un autor y una editorial al azar entre los existentes y se lo asignamos como una propiedad a cada libro.
     for (let i = 0; i < books.length; i++) {
       const book = books[i];
       const randomAuthor = author[generateRandom(0, author.length)];
@@ -31,7 +32,7 @@ const bookRelations = async () => {
       book.author = randomAuthor;
       book.publisher = randomPublisher;
 
-      await book.save();
+      await book.save(); // Guardamos el libro creado con las nuevas propiedades.
     }
     console.log("Relaciones entre colecciones creadas correctamente");
   } catch (error) {

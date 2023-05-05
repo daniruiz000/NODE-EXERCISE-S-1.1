@@ -8,9 +8,9 @@ const Schema = mongoose.Schema;
 const bookSchema = new Schema(
   {
     title: { type: String, required: true },
-    author: { type: mongoose.Schema.Types.ObjectId, ref: "Author", required: false }, // Identificará el id como una referencia de la entidad A uthor relacionando las dos colecciones de la BBDD.
+    author: { type: mongoose.Schema.Types.ObjectId, ref: "Author", required: false }, // Identificará el id como una referencia de la entidad Author relacionando las dos colecciones de la BBDD.
     pages: { type: Number, required: false },
-    publisher: { type: mongoose.Schema.Types.ObjectId, ref: "Publisher", required: false }, // Identificará el id como una referencia de la entidad A uthor relacionando las dos colecciones de la BBDD.
+    publisher: { type: mongoose.Schema.Types.ObjectId, ref: "Publisher", required: false }, // Identificará el id como una referencia de la entidad Publisher relacionando las dos colecciones de la BBDD.
   },
   { timestamps: true } // Cada vez que se modifique un documento refleja la hora y fecha de modificación
 );

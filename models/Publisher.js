@@ -4,11 +4,11 @@ const mongoose = require("mongoose");
 // Declaramos nuestro esquema que nos permite declarar nuestros objetos y crearle restricciones.
 const Schema = mongoose.Schema;
 
-// Creamos esquema del author:
+// Creamos esquema del publisher:
 const publisherSchema = new Schema(
   {
     name: { type: String, required: true },
-    country: { type: String, required: true }, // Identificará el id como una referencia de la entidad User relacionando las dos colecciones de la BBDD.
+    country: { type: String, required: true },
   },
   { timestamps: true } // Cada vez que se modifique un documento refleja la hora y fecha de modificación
 );
