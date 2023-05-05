@@ -121,7 +121,7 @@ router.post("/", async (req, res) => {
 });
 
 /* Petición tipo de POST para añadir un nuevo book (añadimos al body el nuevo book con sus propiedades que tiene que cumplir con el Scheme de nuestro modelo) identificado por su id:
- const newBook = {title: "Prueba title", author: "Prueba author", pages: 255}
+ const newBook = {title: "Prueba title", pages: 255}
  fetch("http://localhost:3000/book/",{"body": JSON.stringify(newBook),"method":"POST","headers":{"Accept":"application/json","Content-Type":"application/json"}}).then((data)=> console.log(data)) */
 
 //  ------------------------------------------------------------------------------------------
@@ -130,8 +130,10 @@ router.post("/", async (req, res) => {
 
 router.delete("/reset", async (req, res, next) => {
   try {
+    // La constante all recoge un boleano, si recogemos una query (all) y con valor (true), esta será true:
     const all = req.query.all === "true";
 
+    // Si all es true resetearemos todos los datos de nuestras coleciones y las relaciones entre estas.
     if (all) {
       await resetBooks();
       await resetAuthors();
@@ -142,6 +144,7 @@ router.delete("/reset", async (req, res, next) => {
       await resetBooks();
       res.send("Datos Book reseteados");
     }
+    // Si falla el reseteo...
   } catch (error) {
     console.error(error);
     res.status(500).send(error);
