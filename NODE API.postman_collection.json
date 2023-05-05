@@ -952,7 +952,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/book?page=5&limit=10",
+							"raw": "{{base_url}}/book",
 							"host": [
 								"{{base_url}}"
 							],
@@ -962,11 +962,13 @@
 							"query": [
 								{
 									"key": "page",
-									"value": "5"
+									"value": "5",
+									"disabled": true
 								},
 								{
 									"key": "limit",
-									"value": "10"
+									"value": "10",
+									"disabled": true
 								}
 							]
 						}
@@ -979,13 +981,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/book/6454131bb3baf27a65f95b59",
+							"raw": "{{base_url}}/book/6454817f2960878a4182f283",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"book",
-								"6454131bb3baf27a65f95b59"
+								"6454817f2960878a4182f283"
 							]
 						}
 					},
@@ -997,14 +999,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/book/title/yowza female mint",
+							"raw": "{{base_url}}/book/title/Manual de Lios",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"book",
 								"title",
-								"yowza female mint"
+								"Manual de Lios"
 							]
 						}
 					},
@@ -1028,7 +1030,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Manual de Lios\",\r\n    \"pages\": 35,\r\n    \"author\":\"64540f99277341ef8af44049\"\r\n}",
+							"raw": "{\r\n    \"title\": \"Manual de Lios\",\r\n    \"pages\": 35,\r\n    \"author\":\"6454197379054231fa11aa33\",\r\n    \"publisher\": \"64541974fa08eb8754745c19\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1091,13 +1093,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/book/6453e5b61f0dc5886ba132af",
+							"raw": "{{base_url}}/book/64548843f47b91df975f4c1c",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"book",
-								"6453e5b61f0dc5886ba132af"
+								"64548843f47b91df975f4c1c"
 							]
 						}
 					},
@@ -1109,13 +1111,19 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/book/reset",
+							"raw": "{{base_url}}/book/reset?all=true",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"book",
 								"reset"
+							],
+							"query": [
+								{
+									"key": "all",
+									"value": "true"
+								}
 							]
 						}
 					},
