@@ -6,6 +6,9 @@ const { Book } = require("../models/Book.js");
 
 // Importamos la función que nos sirve para resetear los book:
 const { resetBooks } = require("../utils/resetBooks.js");
+const { resetAuthors } = require("../utils/resetAuthors.js");
+const { resetPublishers } = require("../utils/resetPublishers.js");
+const { bookRelations } = require("../utils/bookRelations.js");
 
 // Router propio de book:
 const router = express.Router();
@@ -125,16 +128,23 @@ router.post("/", async (req, res) => {
 
 //  Endpoint para resetear los datos ejecutando cryptos:
 
-router.delete("/reset", async (req, res) => {
-  // Si funciona el reseteo...
+router.delete("/reset", async (req, res, next) => {
   try {
-    await resetBooks();
-    res.send("Datos Book reseteados");
+    const all = req.query.all === "true";
 
-    // Si falla el reseteo...
+    if (all) {
+      await resetBooks();
+      await resetAuthors();
+      await resetPublishers();
+      await bookRelations();
+      res.send("Datos reseteados y Relaciones reestablecidas");
+    } else {
+      await resetBooks();
+      res.send("Datos Book reseteados");
+    }
   } catch (error) {
     console.error(error);
-    res.status(500).json(error); //  Devolvemos un código 500 de error si falla el reseteo de datos y el error.
+    res.status(500).send(error);
   }
 });
 
