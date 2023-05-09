@@ -1,27 +1,21 @@
-Error: Book validation failed: title:  Al menos tres letras para el título
-    at ValidationError.inspect (/var/task/node_modules/mongoose/lib/error/validation.js:50:26)
-    at formatValue (node:internal/util/inspect:806:19)
-    at inspect (node:internal/util/inspect:365:10)
-    at formatWithOptionsInternal (node:internal/util/inspect:2273:40)
-    at Object.format (node:internal/util/inspect:2130:10)
-    at console.error (file:///var/runtime/index.mjs:587:32)
-    at /var/task/routes/book.routes.js:127:13
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  errors: {
-    title: ValidatorError:  Al menos tres letras para el título
-        at validate (/var/task/node_modules/mongoose/lib/schematype.js:1347:13)
-        at SchemaType.doValidate (/var/task/node_modules/mongoose/lib/schematype.js:1331:7)
-        at /var/task/node_modules/mongoose/lib/document.js:2893:18
-        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
-      properties: [Object],
-      kind: 'minlength',
-      path: 'title',
-      value: 'f',
-      reason: undefined,
-      [Symbol(mongoose:validatorError)]: true
+Pepe {
+  "errors": {
+    "title": {
+      "name": "ValidatorError",
+      "message": " Al menos tres letras para el título",
+      "properties": {
+        "message": " Al menos tres letras para el título",
+        "type": "minlength",
+        "minlength": 3,
+        "path": "title",
+        "value": "f"
+      },
+      "kind": "minlength",
+      "path": "title",
+      "value": "f"
     }
   },
-  _message: 'Book validation failed'
+  "_message": "Book validation failed",
+  "name": "ValidationError",
+  "message": "Book validation failed: title:  Al menos tres letras para el título"
 }
-undefined
-false
