@@ -126,7 +126,7 @@ router.post("/", async (req, res) => {
   } catch (error) {
     console.log("Pepe", error);
 
-    if (error?.title?.name === "ValidatorError") {
+    if (error.name === "ValidationError") {
       console.log("hola");
       res.status(400).json(error);
     }
