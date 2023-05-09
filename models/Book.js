@@ -7,9 +7,9 @@ const Schema = mongoose.Schema;
 // Creamos esquema del book:
 const bookSchema = new Schema(
   {
-    title: { type: String, required: true },
+    title: { type: String, minLength: [3, " Al menos tres letras para el título"], maxLength: [20, "Título demasiado largo, máximo de 20 caracteres"], required: true },
     author: { type: mongoose.Schema.Types.ObjectId, ref: "Author", required: false }, // Identificará el id como una referencia de la entidad Author relacionando las dos colecciones de la BBDD.
-    pages: { type: Number, required: false },
+    pages: { type: Number, minLength: [1, "Mínimo 1 página"], maxLength: [1000, "Máximo 1000 páginas"], required: false },
     publisher: { type: mongoose.Schema.Types.ObjectId, ref: "Publisher", required: false }, // Identificará el id como una referencia de la entidad Publisher relacionando las dos colecciones de la BBDD.
   },
   { timestamps: true } // Cada vez que se modifique un documento refleja la hora y fecha de modificación

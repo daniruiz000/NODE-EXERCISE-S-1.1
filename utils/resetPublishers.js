@@ -3,10 +3,10 @@ const { Publisher } = require("../models/Publisher.js");
 
 // Creamos 50 editorial aleatoriamente y los vamos añadiendo al array de editoriales:
 const publisherList = [
-  { name: "RGB", country: "USA" },
-  { name: "Amaya", country: "Spain" },
-  { name: "Alianza Editorial", country: "Spain" },
-  { name: "Alfaguara", country: "Argentina" },
+  { name: "RGB", country: "UNITED STATES" },
+  { name: "Amaya", country: "SPAIN" },
+  { name: "Alianza Editorial", country: "SPAIN" },
+  { name: "Alfaguara", country: "ARGENTINA" },
 ];
 
 //  Función de reseteo de documentos de la colección.
