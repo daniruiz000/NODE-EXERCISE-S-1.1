@@ -125,6 +125,8 @@ router.post("/", async (req, res) => {
     // Si falla la escritura...
   } catch (error) {
     console.error(error);
+    console.log(error.name);
+    console.log(error?.name === "ValidationError");
     if (error?.name === "ValidationError") {
       res.status(400).json(error);
     }
