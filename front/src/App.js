@@ -18,7 +18,7 @@ function App() {
         {books?.data.map((book) => {
           return (
             <li key={book._id}>
-              {book.name}({book.author.name})
+              {book.title}({book.author.name})
             </li>
           );
         })}
