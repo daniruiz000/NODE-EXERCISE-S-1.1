@@ -9,7 +9,7 @@ const bookList = [];
 
 for (let i = 0; i < 50; i++) {
   const newBook = {
-    title: faker.random.words(3),
+    title: faker.lorem.word({ length: { min: 5, max: 20 } }),
     pages: faker.datatype.number({ min: 50, max: 1000 }),
   };
 

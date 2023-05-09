@@ -10,7 +10,7 @@ const allowedCountries = ["SPAIN", "COLOMBIA", "ENGLAND", "RUSSIA", "ENGLAND", "
 
 const authorSchema = new Schema(
   {
-    name: { type: String, trim: true, minLength: [3, "Al menos tres letras para el nombre"], maxLength: [20, "Nombre demasiado largo, máximo de 20 caracteres"], required: true },
+    name: { type: String, trim: true, minLength: [3, "Al menos tres letras para el nombre"], maxLength: [22, "Nombre demasiado largo, máximo de 22 caracteres"], required: true },
     country: { type: String, trim: [3, "Al menos tres letras para el país"], maxLength: [20, "País demasiado largo, máximo de 20 caracteres"], enum: allowedCountries, uppercase: true, required: true },
   },
   { timestamps: true } // Cada vez que se modifique un documento refleja la hora y fecha de modificación
