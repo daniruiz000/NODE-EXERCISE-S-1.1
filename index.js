@@ -27,7 +27,7 @@ const main = async () => {
   // Definimos el routerHome que será el encargado de manejar las peticiones a nuestras rutas en la raíz.
   const routerHome = express.Router();
 
-  // ENDPOINTS DE /:
+  // ENDPOINT DE /:
 
   // Endpoint de la Home de nuestra API.
   routerHome.get("/", (req, res) => {
