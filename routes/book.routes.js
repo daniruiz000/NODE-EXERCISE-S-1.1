@@ -125,7 +125,7 @@ router.post("/", async (req, res) => {
     // Si falla la escritura...
   } catch (error) {
     console.error(error);
-    if (error?.errors?.title?.name === "ValidatiorError") {
+    if (error?.errors?.title?.name === "ValidatorError") {
       console.log("Entra en el búcle");
       res.status(400).json(error);
     }
